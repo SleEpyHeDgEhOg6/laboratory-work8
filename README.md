@@ -18,8 +18,11 @@
 Пример
 
 int* p = new int(42);
+
 std::cout << "value: " << *p << std::endl;
+
 std::cout << "address: " << std::hex << p << std::endl;
+
 delete p;
 
 Кроме отдельных динамических объектов в языке C++ мы можем использовать динамические массивы. Для выделения памяти под динамический массив также используется оператор new[]. Для удаления динамического массива и освобождения его памяти применяется специальная форма оператора delete[].
@@ -27,12 +30,19 @@ delete p;
 Пример
 
 size_t n = 0;
+
 std::cin > n;
+
 int* p = new int[n];
+
 for (size_t i = 0; i < n; ++i) {
+
     p[i] = rand();
+    
 }
+
 // ...
+
 delete[] p;
 
 Полее полную информацию можно найти по ссылкам:
@@ -50,9 +60,11 @@ delete[] p;
 Реализуйте фунции для работы со строками:
 
 // Создает копию строки |str|.
+
 char* CopyString(const char* str);
 
 // Соединяет две строки в одну новую.
+
 char* ConcatinateStrings(const char* a, const char* b);
 
 Примечание 1. Использовать функции для работы со строками (strstr, strlen, strcpy, strcat и др) запрещено.
@@ -64,33 +76,55 @@ char* ConcatinateStrings(const char* a, const char* b);
 Реализуйте функции для работы со структурой матрицы.
 
 struct Matrix {
+
   // двумерный массив с данными.
+  
   int** data_ = nullptr;
+  
   // количество столбцов
+  
   size_t n_ = 0u;
+  
   // количество строк
+  
   size_t m_ = 0u;
+  
 };
 
 // Создает заполненную нулями матрицу n x m.
+
 void Construct(Matrix& out, size_t n, size_t m);
+
 // Освобождает выделенную память.
+
 void Destruct(Matrix& in);
 
 // Создает копию матрицы |matrix|.
+
 Matrix Copy(const Matrix& matrix);
+
 // Возвращает сумму двух матриц.
+
 // Если операция невозможна - вернуть пустую матрицу
+
 Matrix Add(const Matrix& a, const Matrix& b);
+
 // Возвращает разницу двух матриц.
+
 // Если операция невозможна - вернуть пустую матрицу
+
 Matrix Sub(const Matrix& a, const Matrix& b);
+
 // Возвращает произведение двух матриц.
+
 // Если операция невозможна - вернуть пустую матрицу
+
 Matrix Mult(const Matrix& a, const Matrix& b);
 
 // Транспонирование матрицы.
+
 void Transposition(Matrix& matrix);
 
 // Сравнение двух матриц.
+
 bool operator==(const Matrix& a, const Matrix& b);
